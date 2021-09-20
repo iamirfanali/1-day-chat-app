@@ -37,6 +37,7 @@ module.exports = {
     'react/display-name': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'import-helpers/order-imports': [
       'warn',
