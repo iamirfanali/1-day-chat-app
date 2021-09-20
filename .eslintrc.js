@@ -1,34 +1,57 @@
 module.exports = {
-    root: true,
-    parser: '@typescript-eslint/parser',
-    plugins: ['react', '@typescript-eslint', 'prettier'],
-    extends: [
-        'airbnb-typescript',
-        'airbnb/hooks',
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'prettier',
-        'prettier/react',
-        'prettier/@typescript-eslint',
-        'plugin:prettier/recommended',
+  root: true,
+  parser: '@typescript-eslint/parser',
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'prettier',
+    'react-hooks',
+    'eslint-plugin-import-helpers',
+  ],
+  extends: [
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'prettier/react',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+  ],
+  env: {
+    browser: true,
+    jasmine: true,
+    jest: true,
+    node: true,
+  },
+  parserOptions: {
+    project: './tsconfig.json',
+  },
+  rules: {
+    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'react/prop-types': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'simple-import-sort/sort': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/display-name': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'import/prefer-default-export': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'import-helpers/order-imports': [
+      'warn',
+      {
+        newlinesBetween: 'always',
+        groups: [
+          ['/^react$/', '/^react-(native|dom)$/', '/^next/'],
+          'module',
+          '/^@src/',
+          ['parent', 'sibling'],
+          'index',
+        ],
+        alphabetize: { order: 'asc', ignoreCase: true },
+      },
     ],
-    env: {
-        browser: true,
-        jasmine: true,
-        jest: true,
-        node: true,
-    },
-    // Airbnb's ESLint config requires this
-    parserOptions: {
-        project: './tsconfig.json',
-    },
-    rules: {
-        // Include .prettierrc.js rules
-        'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-        // We will use TypeScript's types for component props instead
-        'react/prop-types': 'off',
-        // We don't want unused vars
-        '@typescript-eslint/no-unused-vars': ['error'],
-    },
+    'import/no-unresolved': [2, { ignore: ['.graphql', '.gql', '.css'] }],
+  },
 };
