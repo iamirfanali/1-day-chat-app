@@ -12,9 +12,8 @@ import Button from '../../atom/button';
 import ChatMessage from '../../molecules/chat-message';
 import { ChatListWrapper, ReadMoreButtonWrapper } from './styles';
 
-/* Getting -- CORS Error -- for provided Graphql API
- * conveyed this to HR didn't received any response on that
- * so, I have added test only data to depict the actual app functionality
+/*
+ * I have added test only data to depict the actual app functionality
  */
 const chats = [
   {
